@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: agri
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: agri
+  template:
+    metadata:
+      labels:
+        app: agri
+    spec:
+      containers:
+        - name: app
+          image: mahaprm/agir
+          ports:
+            - containerPort: 8080
+          imagePullPolicy: Never

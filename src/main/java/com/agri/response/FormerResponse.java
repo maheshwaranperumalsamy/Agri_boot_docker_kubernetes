@@ -29,7 +29,6 @@ public class FormerResponse {
     private final int fpoId;
     private final int villageId;
     private final int figId;
-    private final Set<QuestionsAnswerResponse> questionsAnswers;
 
     public FormerResponse(final Builder builder) {
         this.formerId = builder.formerId;
@@ -48,7 +47,6 @@ public class FormerResponse {
         this.fpoId = builder.fpoId;
         this.villageId = builder.villageId;
         this.figId = builder.figId;
-        this.questionsAnswers = builder.questionsAnswers;
     }
 
     public Integer getFormerId() {
@@ -115,9 +113,6 @@ public class FormerResponse {
         return figId;
     }
 
-    public Set<QuestionsAnswerResponse> getQuestionsAnswers() {
-        return questionsAnswers;
-    }
 
     @JsonPOJOBuilder(buildMethodName = "build", withPrefix = "set")
     public static class Builder {
@@ -137,7 +132,6 @@ public class FormerResponse {
         private int fpoId;
         private int villageId;
         private int figId;
-        private Set<QuestionsAnswerResponse> questionsAnswers;
 
         public Builder setFormerId(final Integer formerId) {
             this.formerId = formerId;
@@ -219,10 +213,6 @@ public class FormerResponse {
             return this;
         }
 
-        public Builder setQuestionsAnswers(final Set<QuestionsAnswerResponse> questionsAnswers) {
-            this.questionsAnswers = questionsAnswers;
-            return this;
-        }
 
         public FormerResponse build() {
             return new FormerResponse(this);

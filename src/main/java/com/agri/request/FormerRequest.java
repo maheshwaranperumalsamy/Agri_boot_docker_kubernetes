@@ -4,9 +4,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
-import java.sql.Timestamp;
-import java.util.Set;
-
 /**
  * The Request class for the FORMER.
  */
@@ -30,7 +27,6 @@ public class FormerRequest {
     private final int fpoId;
     private final int villageId;
     private final int figId;
-    private final Set<QuestionsAnswerRequest> questionsAnswerRequests;
 
     public FormerRequest(final Builder builder) {
         this.formerId = builder.formerId;
@@ -49,7 +45,6 @@ public class FormerRequest {
         this.fpoId = builder.fpoId;
         this.villageId = builder.villageId;
         this.figId = builder.figId;
-        this.questionsAnswerRequests = builder.questionsAnswerRequests;
     }
 
     public Integer getFormerId() {
@@ -116,10 +111,6 @@ public class FormerRequest {
         return figId;
     }
 
-    public Set<QuestionsAnswerRequest> getQuestionsAnswerRequests() {
-        return questionsAnswerRequests;
-    }
-
     @JsonPOJOBuilder(buildMethodName = "build", withPrefix = "set")
     public static class Builder {
         private Integer formerId;
@@ -138,7 +129,6 @@ public class FormerRequest {
         private int fpoId;
         private int villageId;
         private int figId;
-        private Set<QuestionsAnswerRequest> questionsAnswerRequests;
 
         public Builder setFormerId(final Integer formerId) {
             this.formerId = formerId;
@@ -217,11 +207,6 @@ public class FormerRequest {
 
         public Builder setFigId(final int figId) {
             this.figId = figId;
-            return this;
-        }
-
-        public Builder setQuestionsAnswerRequests(final Set<QuestionsAnswerRequest> questionsAnswerRequests) {
-            this.questionsAnswerRequests = questionsAnswerRequests;
             return this;
         }
 

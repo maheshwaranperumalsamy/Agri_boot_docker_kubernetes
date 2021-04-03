@@ -72,29 +72,6 @@ public class Former implements Serializable {
     @Column(name = "TOTAL_LAND_HOLDING")
     private int totalLandHolding;
 
-    //bi-directional many-to-one association to Fpo
-    @ManyToOne
-    @JoinColumn(name = "FPO_ID", nullable = false)
-    private Fpo fpo;
-
-    //bi-directional many-to-one association to Village
-    @ManyToOne
-    @JoinColumn(name = "VILLAGE_ID", nullable = false)
-    private Village village;
-
-    //bi-directional many-to-one association to Fig
-    @ManyToOne
-    @JoinColumn(name = "FIG_ID", nullable = false)
-    private Fig fig;
-
-    //bi-directional many-to-one association to Land
-    @OneToMany(mappedBy = "former")
-    private Set<Land> lands;
-
-    //bi-directional many-to-one association to QuestionsAnswer
-    @OneToMany(mappedBy = "former")
-    private Set<QuestionsAnswer> questionsAnswers;
-
     public Former() {
     }
 
@@ -226,72 +203,5 @@ public class Former implements Serializable {
         this.totalLandHolding = totalLandHolding;
     }
 
-    public Fpo getFpo() {
-        return this.fpo;
-    }
-
-    public void setFpo(final Fpo fpo) {
-        this.fpo = fpo;
-    }
-
-    public Village getVillage() {
-        return this.village;
-    }
-
-    public void setVillage(final Village village) {
-        this.village = village;
-    }
-
-    public Fig getFig() {
-        return this.fig;
-    }
-
-    public void setFig(final Fig fig) {
-        this.fig = fig;
-    }
-
-    public Set<Land> getLands() {
-        return this.lands;
-    }
-
-    public void setLands(final Set<Land> lands) {
-        this.lands = lands;
-    }
-
-    public Land addLand(final Land land) {
-        getLands().add(land);
-        land.setFormer(this);
-
-        return land;
-    }
-
-    public Land removeLand(final Land land) {
-        getLands().remove(land);
-        land.setFormer(null);
-
-        return land;
-    }
-
-    public Set<QuestionsAnswer> getQuestionsAnswers() {
-        return this.questionsAnswers;
-    }
-
-    public void setQuestionsAnswers(final Set<QuestionsAnswer> questionsAnswers) {
-        this.questionsAnswers = questionsAnswers;
-    }
-
-    public QuestionsAnswer addQuestionsAnswer(final QuestionsAnswer questionsAnswer) {
-        getQuestionsAnswers().add(questionsAnswer);
-        questionsAnswer.setFormer(this);
-
-        return questionsAnswer;
-    }
-
-    public QuestionsAnswer removeQuestionsAnswer(final QuestionsAnswer questionsAnswer) {
-        getQuestionsAnswers().remove(questionsAnswer);
-        questionsAnswer.setFormer(null);
-
-        return questionsAnswer;
-    }
 
 }
